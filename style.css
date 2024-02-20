@@ -1,0 +1,123 @@
+@keyframes rainbowFade {
+    0% { background-color: red; }
+    17% { background-color: orange; }
+    33% { background-color: yellow; }
+    50% { background-color: green; }
+    67% { background-color: blue; }
+    83% { background-color: purple; }
+    100% { background-color: red; }
+}
+  
+body {
+    animation-name: rainbowFade;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+  
+#user {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+}
+
+.info {
+    position: absolute;
+    font-family: 'Monaco';
+    font-size: small;
+    text-align: right;
+    right: 1%;
+    bottom: -1%;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-button {
+    animation: startAnimation 2s ease infinite
+}
+
+.reset-buttons {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, -50%);
+}
+
+#start-button:hover {
+    opacity: 0.5;
+}
+
+#home:hover {
+    transform: scale(1.2);
+}
+
+#play:hover {
+    transform: scale(1.2);
+}
+
+#score{
+    position: absolute;
+    font-family: 'Monaco';
+    font-size: xx-large;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes left {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes right {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -10%;
+    }
+}
+
+@keyframes top {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes bottom {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -10%;
+    }
+}
+
+@keyframes startAnimation {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes deathSpin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
