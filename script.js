@@ -33,7 +33,6 @@ let backgroundToggle = true;
 var music = document.getElementById("background-music");
 var soundfx = document.getElementById("soundfx");
 var deathSound = document.getElementById("death-sound");
-music.volume = 0.5;
 soundfx.volume = 0.0;
 deathSound.volume = 0.0;
 
@@ -112,7 +111,7 @@ musicButton.addEventListener('click', function() {
     musicToggle = !musicToggle;
     if (musicToggle == true) {
         musicButton.src = "assets/musicOn.png";
-        music.volume = 1.0;
+        music.volume = 0.25;
         music.play();
     }
     else {
