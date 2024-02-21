@@ -6,6 +6,8 @@ function gameStart() {
     if (gameCounter > 0) {
         return;
     }
+    soundfx.play();
+    homedecor.style.opacity = 0;
     timer.textContent = 0;
     user.style.animation = "none";
     score.style.opacity = 0;
@@ -69,6 +71,7 @@ function enemySpawn() {
     }
     var checkCollisions = setInterval(function() {
         if (isColliding(user, enemy)) {
+            deathSound.play();
             gameCounter -= 1;
             clearInterval(checkCollisions);
             document.removeEventListener('mousemove', handleMouseMove);

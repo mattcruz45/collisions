@@ -26,9 +26,16 @@ musicButton = document.getElementById("music");
 soundButton = document.getElementById("sound");
 backgroundButton = document.getElementById("background");
 toggles = document.querySelector('.toggles');
-let musicToggle = true;
-let soundToggle = true;
+homedecor = document.querySelector('.homedecor');
+let musicToggle = false;
+let soundToggle = false;
 let backgroundToggle = true;
+var music = document.getElementById("background-music");
+var soundfx = document.getElementById("soundfx");
+var deathSound = document.getElementById("death-sound");
+music.volume = 0.5;
+soundfx.volume = 0.0;
+deathSound.volume = 0.0;
 
 function timerIncrease() {
     time++
@@ -36,6 +43,8 @@ function timerIncrease() {
 }
 
 function goHome() {
+    homedecor.style.opacity = 1;
+    soundfx.play();
     timer.textContent = 0;
     user.style.opacity = 0;
     startButton.style.opacity = 1;
@@ -71,11 +80,13 @@ right.addEventListener('click', function() {
     }
     else if (currentSkin >= skins.length) {
         currentSkin = skins.length-1;
+        soundfx.play();
     }
     else {
         currentSkin += 1;
         skin.src = skins[currentSkin];
         user.src = skin.src;
+        soundfx.play();
     }
     console.log(currentSkin + skins[currentSkin]);
 });
@@ -86,11 +97,13 @@ left.addEventListener('click', function() {
     }
     else if (currentSkin < 0) {
         currentSkin = 0;
+        soundfx.play();
     }
     else {
         currentSkin -= 1;
         skin.src = skins[currentSkin];
         user.src = skin.src;
+        soundfx.play();
     }
     console.log(currentSkin + skins[currentSkin]);
 });
@@ -99,18 +112,25 @@ musicButton.addEventListener('click', function() {
     musicToggle = !musicToggle;
     if (musicToggle == true) {
         musicButton.src = "assets/musicOn.png";
+        music.volume = 1.0;
+        music.play();
     }
     else {
         musicButton.src = "assets/musicOff.png";
+        music.pause();
     }
 });
 soundButton.addEventListener('click', function() {
     soundToggle = !soundToggle;
     if (soundToggle == true) {
         soundButton.src = "assets/soundOn.png";
+        soundfx.volume = 0.5;
+        deathSound.volume = 1.0;
     }
     else {
         soundButton.src = "assets/soundOff.png";
+        soundfx.volume = 0;
+        deathSound.volume = 0;
     }
 });
 backgroundButton.addEventListener('click', function() {
@@ -122,5 +142,6 @@ backgroundButton.addEventListener('click', function() {
     else {
         backgroundButton.src = "assets/rainbowScreen.png";
         document.body.style.backgroundImage = "url('assets/whiteBackground.png')";
+        document.body.style.backgroundSize = "100% 100%";
     }
 });
