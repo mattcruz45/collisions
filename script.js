@@ -30,6 +30,7 @@ function timerIncrease() {
 }
 
 function goHome() {
+    timer.textContent = 0;
     user.style.opacity = 0;
     startButton.style.opacity = 1;
     startButton.style.pointerEvents = "auto";
@@ -39,4 +40,14 @@ function goHome() {
     play.style.pointerEvents = "none";
     score.style.opacity = 0;
     logo.style.opacity = 1;
+    startButton.addEventListener('mouseenter', startMouseEnter);
+    startButton.addEventListener('mouseleave', startMouseLeave);
+}
+
+function startMouseEnter() {
+    startButton.style.opacity = '0.5';
+}
+
+function startMouseLeave() {
+    startButton.style.opacity = '1.0';
 }

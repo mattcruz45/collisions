@@ -5,7 +5,10 @@ function gameStart() {
     if (gameCounter > 0) {
         return;
     }
+    user.style.animation = "none";
     score.style.opacity = 0;
+    startButton.removeEventListener('mouseenter', startMouseEnter);
+    startButton.removeEventListener('mouseleave', startMouseLeave);
     gameCounter = 0;
     gameCounter += 1;
     document.addEventListener('mousemove', handleMouseMove);
@@ -62,7 +65,7 @@ function enemySpawn() {
             clearInterval(enemySpawns);
             reset();
         }
-    }, 100);
+    }, 50);
 
     setTimeout(() => enemy.remove(), 4995);
 }
@@ -87,19 +90,18 @@ function handleMouseMove(e) {
 }
 
 function reset() {
-    console.log(gameCounter);
     if (gameCounter == 0) {
         clearInterval(timerInterval);
         time = 0;
         score.textContent = "Score: " + timer.textContent;
         user.style.animation = "deathSpin 0.5s linear 9"
+        setTimeout(() => logo.style.opacity = 1, 5000);
         setTimeout(() => user.style.opacity = 0, 5000);
         setTimeout(() => home.style.opacity = 1, 5000);
         setTimeout(() => play.style.opacity = 1, 5000);
         setTimeout(() => score.style.opacity = 1, 5000);
         setTimeout(() => home.style.pointerEvents = "auto", 5000);
         setTimeout(() => play.style.pointerEvents = "auto", 5000);
-        setTimeout(() => console.log("score: " + timer.textContent), 5000);
         gameCounter = 0;
     }
 }
