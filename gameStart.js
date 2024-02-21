@@ -1,10 +1,12 @@
 var enemySpawns;
 var timerInterval;
 var gameCounter = 0;
+let enemies = ["assets/enemy1.png", "assets/enemy2.png", "assets/enemy3.png", "assets/enemy4.png", "assets/enemy5.png", "assets/enemy6.png"]
 function gameStart() {
     if (gameCounter > 0) {
         return;
     }
+    timer.textContent = 0;
     user.style.animation = "none";
     score.style.opacity = 0;
     startButton.removeEventListener('mouseenter', startMouseEnter);
@@ -29,7 +31,8 @@ function enemySpawn() {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
     var enemy = document.createElement('img');
-    enemy.src = "assets/enemy1.png";
+    const randomNum = Math.floor(Math.random() * 6);
+    enemy.src = enemies[randomNum];
     gameItems = document.querySelector('.game-items');
     enemy.style.width = "100px";
     gameItems.appendChild(enemy);
@@ -93,7 +96,7 @@ function reset() {
     if (gameCounter == 0) {
         clearInterval(timerInterval);
         time = 0;
-        score.textContent = "Score: " + timer.textContent;
+        score.textContent = "Score:" + timer.textContent;
         user.style.animation = "deathSpin 0.5s linear 9"
         setTimeout(() => logo.style.opacity = 1, 5000);
         setTimeout(() => user.style.opacity = 0, 5000);

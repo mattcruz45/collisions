@@ -23,7 +23,7 @@ body {
 
 .info {
     position: absolute;
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: "Press Start 2P", system-ui;
     font-size: small;
     text-align: right;
     right: 1%;
@@ -65,10 +65,10 @@ body {
 
 #score{
     position: absolute;
-    font-family: "Pixelify Sans", sans-serif;
-    font-size: 100px;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 75px;
     left: 50%;
-    top: 25%;
+    top: 30%;
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
