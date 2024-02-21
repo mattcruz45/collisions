@@ -29,6 +29,8 @@ function gameStart() {
     play.style.pointerEvents = "none";
     home.style.opacity = 0;
     home.style.pointerEvents = "none";
+    toggles.style.pointerEvents = "none";
+    toggles.style.opacity = 0;
     enemySpawns = setInterval(enemySpawn, 200);
 }
 

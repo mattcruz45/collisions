@@ -40,7 +40,8 @@ body {
 .skins {
     height: auto;
     display: block;
-    padding: 150px;
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
 
 #skin {
@@ -60,6 +61,11 @@ body {
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, -50%);
+}
+
+.toggles{
+    display: block;
+    gap: 10px;
 }
 
 #left {

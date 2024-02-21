@@ -1,8 +1,3 @@
-//Don't Touch Me
-//"Enemies" will fly linearly across the screenat random angles and locations
-//If they touch the user, the user loses
-//The enemies will go at random speed and be a random size
-//As time goes on, the peak speed, size, and amount of enemies will increase
 const user = document.getElementById('user');
 user.style.opacity = 0;
 let time = 0;
@@ -27,6 +22,13 @@ let left = document.getElementById("left");
 skin.style.pointerEvents = "none";
 skins = ["assets/skins/clear.png", "assets/skins/user.png", "assets/skins/steve.png"];
 currentSkin = 0;
+musicButton = document.getElementById("music");
+soundButton = document.getElementById("sound");
+backgroundButton = document.getElementById("background");
+toggles = document.querySelector('.toggles');
+let musicToggle = true;
+let soundToggle = true;
+let backgroundToggle = true;
 
 function timerIncrease() {
     time++
@@ -51,6 +53,8 @@ function goHome() {
     left.style.pointerEvents = "auto";
     right.style.opacity = 1;
     right.style.pointerEvents = "auto";
+    toggles.style.pointerEvents = "auto";
+    toggles.style.opacity = 1;
 }
 
 function startMouseEnter() {
@@ -89,4 +93,34 @@ left.addEventListener('click', function() {
         user.src = skin.src;
     }
     console.log(currentSkin + skins[currentSkin]);
+});
+
+musicButton.addEventListener('click', function() {
+    musicToggle = !musicToggle;
+    if (musicToggle == true) {
+        musicButton.src = "assets/musicOn.png";
+    }
+    else {
+        musicButton.src = "assets/musicOff.png";
+    }
+});
+soundButton.addEventListener('click', function() {
+    soundToggle = !soundToggle;
+    if (soundToggle == true) {
+        soundButton.src = "assets/soundOn.png";
+    }
+    else {
+        soundButton.src = "assets/soundOff.png";
+    }
+});
+backgroundButton.addEventListener('click', function() {
+    backgroundToggle = !backgroundToggle;
+    if (backgroundToggle == true) {
+        backgroundButton.src = "assets/whiteScreen.png";
+        document.body.style.backgroundImage = "none";
+    }
+    else {
+        backgroundButton.src = "assets/rainbowScreen.png";
+        document.body.style.backgroundImage = "url('assets/whiteBackground.png')";
+    }
 });
