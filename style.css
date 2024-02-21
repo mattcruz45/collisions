@@ -37,6 +37,17 @@ body {
     align-items: center;
 }
 
+.skins {
+    height: auto;
+    display: block;
+    padding: 150px;
+}
+
+#skin {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
 #start-button {
     animation: startAnimation 2s ease infinite
 }
@@ -49,6 +60,13 @@ body {
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, -50%);
+}
+
+#left {
+    transform: scale(0.5)
+}
+#right {
+    transform: scale(0.5)
 }
 
 #start-button:hover {

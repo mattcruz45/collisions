@@ -3,7 +3,6 @@
 //If they touch the user, the user loses
 //The enemies will go at random speed and be a random size
 //As time goes on, the peak speed, size, and amount of enemies will increase
-
 const user = document.getElementById('user');
 user.style.opacity = 0;
 let time = 0;
@@ -22,7 +21,12 @@ home.addEventListener('click', goHome);
 const score = document.getElementById("score");
 score.style.opacity = 0;
 let logo = document.getElementById("logo");
-
+let skin = document.getElementById("skin");
+let right = document.getElementById("right");
+let left = document.getElementById("left");
+skin.style.pointerEvents = "none";
+skins = ["assets/skins/clear.png", "assets/skins/user.png", "assets/skins/steve.png"];
+currentSkin = 0;
 
 function timerIncrease() {
     time++
@@ -42,6 +46,11 @@ function goHome() {
     logo.style.opacity = 1;
     startButton.addEventListener('mouseenter', startMouseEnter);
     startButton.addEventListener('mouseleave', startMouseLeave);
+    skin.style.opacity = 1;
+    left.style.opacity = 1;
+    left.style.pointerEvents = "auto";
+    right.style.opacity = 1;
+    right.style.pointerEvents = "auto";
 }
 
 function startMouseEnter() {
@@ -51,3 +60,33 @@ function startMouseEnter() {
 function startMouseLeave() {
     startButton.style.opacity = '1.0';
 }
+
+right.addEventListener('click', function() {
+    if (currentSkin == skins.length - 1){
+        return;
+    }
+    else if (currentSkin >= skins.length) {
+        currentSkin = skins.length-1;
+    }
+    else {
+        currentSkin += 1;
+        skin.src = skins[currentSkin];
+        user.src = skin.src;
+    }
+    console.log(currentSkin + skins[currentSkin]);
+});
+
+left.addEventListener('click', function() {
+    if (currentSkin == 0){
+        return;
+    }
+    else if (currentSkin < 0) {
+        currentSkin = 0;
+    }
+    else {
+        currentSkin -= 1;
+        skin.src = skins[currentSkin];
+        user.src = skin.src;
+    }
+    console.log(currentSkin + skins[currentSkin]);
+});

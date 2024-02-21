@@ -9,6 +9,11 @@ function gameStart() {
     timer.textContent = 0;
     user.style.animation = "none";
     score.style.opacity = 0;
+    skin.style.opacity = 0;
+    left.style.opacity = 0;
+    left.style.pointerEvents = "none";
+    right.style.opacity = 0;
+    right.style.pointerEvents = "none";
     startButton.removeEventListener('mouseenter', startMouseEnter);
     startButton.removeEventListener('mouseleave', startMouseLeave);
     gameCounter = 0;
