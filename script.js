@@ -20,7 +20,7 @@ let skin = document.getElementById("skin");
 let right = document.getElementById("right");
 let left = document.getElementById("left");
 skin.style.pointerEvents = "none";
-skins = ["assets/skins/clear.png", "assets/skins/user.png", "assets/skins/steve.png"];
+let skins = ["assets/skins/clear.png", "assets/skins/user.png", "assets/skins/steve.png", "assets/skins/rainbowskin.png",  "assets/skins/yingyang.png", "assets/skins/laughcry.webp"];
 currentSkin = 0;
 musicButton = document.getElementById("music");
 soundButton = document.getElementById("sound");
@@ -75,7 +75,10 @@ function startMouseLeave() {
 
 right.addEventListener('click', function() {
     if (currentSkin == skins.length - 1){
-        return;
+        currentSkin = 0;
+        skin.src = skins[currentSkin];
+        user.src = skin.src;
+        soundfx.play();
     }
     else if (currentSkin >= skins.length) {
         currentSkin = skins.length-1;
@@ -92,7 +95,10 @@ right.addEventListener('click', function() {
 
 left.addEventListener('click', function() {
     if (currentSkin == 0){
-        return;
+        currentSkin = skins.length - 1;
+        skin.src = skins[currentSkin];
+        user.src = skin.src;
+        soundfx.play();
     }
     else if (currentSkin < 0) {
         currentSkin = 0;

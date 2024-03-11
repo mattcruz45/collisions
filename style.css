@@ -12,6 +12,8 @@ body {
     animation-name: rainbowFade;
     animation-duration: 10s;
     animation-iteration-count: infinite;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
   
 #user {
