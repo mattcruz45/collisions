@@ -78,6 +78,7 @@ body {
 .toggles{
     display: block;
     gap: 10px;
+    z-index: 10;
 }
 
 #left {

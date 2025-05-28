@@ -105,6 +105,12 @@ function handleMouseMove(e) {
 function reset() {
     if (gameCounter == 0) {
         clearInterval(timerInterval);
+        //high score
+        if (time > highScore) {
+            highScore = time;
+            highscore.textContent = "High: " + highScore;
+            localStorage.setItem('highScore', highScore);
+        }
         time = 0;
         score.textContent = "Score:" + timer.textContent;
         user.style.animation = "deathSpin 0.5s linear 9"

@@ -13,7 +13,13 @@ play.style.opacity = 0;
 play.style.pointerEvents = "none";
 play.addEventListener('click', gameStart);
 home.addEventListener('click', goHome);
+//score is the text upon death
+//highscore is the html element in the bottom right corner
+//highScore is the actual highscore int stored inside local data
 const score = document.getElementById("score");
+let highscore = document.getElementById("highscore");
+let highScore = localStorage.getItem('highScore') || 0;
+highscore.textContent = "High: " + highScore;
 score.style.opacity = 0;
 let logo = document.getElementById("logo");
 let skin = document.getElementById("skin");
